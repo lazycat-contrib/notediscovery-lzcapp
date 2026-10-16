@@ -1,0 +1,39 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/notediscovery.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: notediscovery
+
+build:
+  run_buildscript: false
+
+images:
+  - id: notediscovery
+    target: service
+    service: notediscovery
+    source: ghcr.io/gamosoft/notediscovery
+    channel: stable
+    sort: semver
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: mirror
+      require_digest_match: true
+
+stores:
+  official:
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: NoteDiscovery
+    summary: "自托管 Markdown 知识库"

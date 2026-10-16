@@ -1,0 +1,13 @@
+params:
+  - id: auth_password
+    type: secret
+    name: "Access Password"
+    description: "Password to access your notes (bcrypt-hashed at startup)"
+    default_value: "$random(len=20)"
+    optional: false
+
+locales:
+  zh:
+    auth_password:
+      name: "访问密码"
+      description: "访问笔记所需的密码（启动时自动 bcrypt 加密）"

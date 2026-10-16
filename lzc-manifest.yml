@@ -1,0 +1,32 @@
+application:
+  subdomain: notediscovery
+  background_task: true
+  multi_instance: false
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://notediscovery:8000/
+
+services:
+  notediscovery:
+    # upstream: ghcr.io/gamosoft/notediscovery:0.32.1
+    image: ghcr.1ms.run/gamosoft/notediscovery:0.32.1
+    environment:
+      - TZ=Asia/Shanghai
+      # 密码保护（部署参数随机生成；session key 稳定）
+      - AUTHENTICATION_ENABLED=true
+      - AUTHENTICATION_PASSWORD={{ .U.auth_password }}
+      - AUTHENTICATION_SECRET_KEY={{ stable_secret "session_key" }}
+    binds:
+      - /lzcapp/var/notediscovery:/app/data
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://localhost:8000/health')
+      interval: 60s
+      timeout: 3s
+      retries: 3
+      start_period: 10s

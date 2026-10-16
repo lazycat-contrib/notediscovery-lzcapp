@@ -1,0 +1,15 @@
+package: community.lazycat.app.notediscovery
+version: 0.32.1
+name: NoteDiscovery
+description: "Self-hosted knowledge base for Markdown notes"
+min_os_version: 1.5.0
+author: gamosoft
+license: MIT
+homepage: https://github.com/gamosoft/NoteDiscovery
+locales:
+  zh:
+    name: "NoteDiscovery"
+    description: "自托管 Markdown 知识库：笔记浏览/搜索/导航、代码高亮、Mermaid 图表、主题与插件"
+  en:
+    name: "NoteDiscovery"
+    description: "Your self-hosted knowledge base for Markdown notes"
