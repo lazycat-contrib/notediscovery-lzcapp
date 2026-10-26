@@ -1,5 +1,5 @@
 package: community.lazycat.app.notediscovery
-version: 0.32.1
+version: 0.33.0
 name: NoteDiscovery
 description: "Self-hosted knowledge base for Markdown notes"
 min_os_version: 1.5.0
