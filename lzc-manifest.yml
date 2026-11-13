@@ -9,8 +9,8 @@ application:
       backend: http://notediscovery:8000/
 services:
   notediscovery:
-    # upstream: ghcr.io/gamosoft/notediscovery:0.34.0
-    image: ghcr.1ms.run/gamosoft/notediscovery:0.34.0
+    # upstream: ghcr.io/gamosoft/notediscovery:0.34.1
+    image: ghcr.1ms.run/gamosoft/notediscovery:0.34.1
     environment:
       - TZ=Asia/Shanghai
       # 密码保护（部署参数随机生成；session key 稳定）
